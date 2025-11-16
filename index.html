@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What'sGoing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f0f2f5;
+      }
+      @keyframes like-animation {
+        0% { transform: scale(1); }
+        15% { transform: scale(0.95); }
+        30% { transform: scale(1.2); }
+        60% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      @keyframes pop-up-animation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.4); }
+        100% { transform: scale(1); }
+      }
+      .like-button.liked svg {
+        fill: #2563eb; /* blue-600 */
+        color: #2563eb;
+      }
+      .like-button .like-icon-animated {
+        animation: like-animation 0.5s ease-in-out;
+      }
+       .like-count-animated {
+        display: inline-block;
+        animation: pop-up-animation 0.3s ease-in-out;
+      }
+      
+      /* Modal Animations */
+      @keyframes modal-fade-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-modal-fade-in {
+        animation: modal-fade-in 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      /* Text Shadow Utility */
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Custom Checkbox */
+      .form-checkbox-custom {
+        appearance: none;
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        width: 1rem;
+        height: 1rem;
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .form-checkbox-custom:checked {
+        background-color: #3b82f6; /* blue-500 */
+        border-color: transparent;
+      }
+      .form-checkbox-custom:checked::after {
+        content: '✔';
+        position: absolute;
+        color: white;
+        font-size: 0.75rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      /* Animated Gradient Background */
+      @keyframes moveGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animated-gradient-bg {
+        background: linear-gradient(-45deg, #4b0082, #8a2be2, #ff1493, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: moveGradient 15s ease infinite;
+      }
+
+      /* Custom Switch Toggle */
+      .switch-toggle {
+        position: relative;
+        display: inline-block;
+        width: 3rem; /* 48px */
+        height: 1.75rem; /* 28px */
+      }
+      .switch-toggle input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .switch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 1.75rem;
+      }
+      .switch-slider:before {
+        position: absolute;
+        content: "";
+        height: 1.25rem; /* 20px */
+        width: 1.25rem; /* 20px */
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+      }
+      input:checked + .switch-slider {
+        background-color: #2563eb;
+      }
+      input:focus + .switch-slider {
+        box-shadow: 0 0 1px #2563eb;
+      }
+      input:checked + .switch-slider:before {
+        -webkit-transform: translateX(1.25rem);
+        -ms-transform: translateX(1.25rem);
+        transform: translateX(1.25rem);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
